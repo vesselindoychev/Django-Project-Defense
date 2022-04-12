@@ -74,6 +74,10 @@ body {
     color: white;
 }
 
+.first-nav-menu li a:hover {
+    font-size: 24px;
+}
+
 .second-nav-menu {
     display: flex;
 }
@@ -225,7 +229,10 @@ body {
 .footer-nav-menu li a {
     text-decoration: none;
     color: lightgray;
+}
 
+.footer-nav-menu li a:hover {
+    font-size: 23px;
 }
 
 .footer-social-media {
@@ -247,6 +254,11 @@ body {
 .footer-social-media-nav li {
     margin-left: 20px;
     list-style-type: none;
+}
+
+.footer-social-media-nav li a:hover {
+    color: black;
+    font-size: 22px;
 }
 
 .first-a {
@@ -290,6 +302,13 @@ body {
 .fifth-a {
     color: white;
     background-color: rgb(40, 104, 178);
+    padding: 10px 13px;
+    border-radius: 21px;
+}
+
+.sixth-a {
+    color: black;
+    background-color: white;
     padding: 10px 13px;
     border-radius: 21px;
 }

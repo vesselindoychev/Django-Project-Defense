@@ -47,6 +47,10 @@ h1 {
     color: white;
 }
 
+.car-info a:hover {
+    font-size: 18px;
+}
+
 .car-info .price {
     font-weight: bold;
     font-size: 26px;

@@ -154,5 +154,4 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
 #
 # EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
-# SENDGRID_API_KEY = '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'
 # SENDGRID_SANDBOX_MODE_IN_DEBUG = False
