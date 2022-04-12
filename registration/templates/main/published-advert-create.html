@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <section class="publish-form">
+        <form class="form-auth" method="post" action="{% url 'publish advert create' %}">
+            <fieldset>
+                <legend>Publish your advert</legend>
+                {{ form }}
+                {% csrf_token %}
+                <button type="submit">Publish</button>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

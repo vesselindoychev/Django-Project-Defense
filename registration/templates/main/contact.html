@@ -1,0 +1,25 @@
+{##First Contact#}
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <section class="main-contact">
+        <article class="contact-heading">
+            <h1>Contact us</h1>
+            <hr>
+            <p>Have questions or comments?</p>
+        </article>
+        <form class="contact-form" action="{% url 'contact' %}" method="post">
+            <fieldset class="contact-form-fieldset">
+                {{ form }}
+                {% csrf_token %}
+            </fieldset>
+            <input class="contact-btn" type="submit" value="Submit">
+        </form>
+    </section>
+
+{% endblock %}
+
+

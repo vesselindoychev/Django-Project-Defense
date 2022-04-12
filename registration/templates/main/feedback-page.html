@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <section class="main-contact">
+        <article class="contact-heading">
+            <h1>Leave your Feedback</h1>
+            <hr>
+            <p>We would be grateful to hear your opinion</p>
+        </article>
+        <form class="contact-form" action="{% url 'leave feedback' %}" method="post">
+            <fieldset class="contact-form-fieldset">
+                <h2>How would you rate your experience in our website and why?</h2>
+                {{ form }}
+                {% csrf_token %}
+            </fieldset>
+            <input class="contact-btn" type="submit" value="Send feedback">
+        </form>
+    </section>
+{% endblock %}

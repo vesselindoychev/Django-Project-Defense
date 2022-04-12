@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <section class="delete-form">
+        <form class="form-delete" method="post" action="{% url 'user delete' request.user.id %}">
+            <fieldset>
+                <legend>Delete Profile</legend>
+                <h1 class="delete-heading-form">Are you sure you want to delete this profile?</h1>
+
+                {{ form }}
+                {% csrf_token %}
+                <button type="submit" class="register">Delete</button>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

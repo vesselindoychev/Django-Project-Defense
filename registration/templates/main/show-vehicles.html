@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <h1 class="show-veh-heading">My Vehicles</h1>
+    <section class="my-vehicles">
+        {% for vehicle in vehicles %}
+            <article class="vehicle">
+                <h2>{{ vehicle.make }}</h2>
+                <p>{{ vehicle.model }}</p>
+                <p>{{ vehicle.manufacture_date }}</p>
+                <p id="show-price">{{ vehicle.price|floatformat:2 }} BGN</p>
+                <a href="{% url 'edit vehicle' vehicle.pk %}" class="veh-edit-btn">Edit</a>
+                <a href="{% url 'delete vehicle' vehicle.pk %}" class="veh-del-btn">Delete</a>
+            </article>
+        {% endfor %}
+    </section>
+
+{% endblock %}
+

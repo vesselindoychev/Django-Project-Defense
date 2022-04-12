@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+     <article class="about-container">
+            <h1>About Us Page</h1>
+            <p>
+                Generally the website is an online platform about selling and purchasing all kinds of vehicles, but mostly cars.
+                 It is easy done and accessible for our users in order to post their adverts as easy as they can.
+            </p>
+        </article>
+
+        <section class="about-section">
+            <h2>Creator</h2>
+            <article class="about-creator">
+                <p class="creator-image">
+                    <img src=" {% static 'images/viber_image_2022-03-23_16-44-30-462.jpg' %}" alt="">
+                </p>
+                <p class="creator-name">Veselin Doychev</p>
+                <p class="creator-job">Python Student</p>
+                <p class="creator-desc">
+                    Hi, my name is Veselin Doychev and this is my first Django Web App. I really like coding Python and Django propably because i've started them first, but anyway. I am here to show you my project. I know it's not perfect but it was really difficult for me to do this even if it doesn't look good and professional.
+                I put a lot of effort in it, although some of you guys think i didn't. There is no JS, but HTML and CSS are written by me.
+                The project is not completed, there are a lot of things to be improved.
+                </p>
+                <a class="creator-mail" href="mailto:doychev.test.demo.032@gmail.com">doychev.test.demo.032@gmail.com</a>
+                <p class="creator-additional-text">If you want to contact me, do it as you click the button bellow or the hyperlink above</p>
+                <a class="creator-contact-btn" href="{% url 'contact' %}">Contact</a>
+            </article>
+        </section>
+{% endblock %}

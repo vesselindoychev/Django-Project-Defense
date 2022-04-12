@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <h1 class="show-veh-heading">Dashboard</h1>
+    <div class="main-div">
+        {% for published_advert in object_list %}
+
+            <section class="adverts">
+                <article class="car-image">
+                    <img src="{{ published_advert.advert.image.url }}" alt="">
+                </article>
+                <article class="advert-info">
+                    <div class="car-info">
+                        <h3>{{ published_advert.advert.car.make }} {{ published_advert.advert.car.model }} {{ published_advert.advert.car.additional_info }}</h3>
+                        <p class="price">{{ published_advert.advert.car.price|floatformat:2 }} BGN</p>
+                        <p class="distance">{{ published_advert.advert.car.mileage }} km</p>
+                        <p class="location">{{ published_advert.advert.car.location }}</p>
+                        <p class="date-time">{{ published_advert.advert.date_of_publication }}</p>
+                        <a href="{% url 'published advert details' published_advert.pk %}">See Details</a>
+                    </div>
+                </article>
+            </section>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

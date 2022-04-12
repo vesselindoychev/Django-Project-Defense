@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <section class="login-form">
+        <form class="form-login" method="post" action="{% url 'login' %}?next={{ next }}">
+            <fieldset>
+                <legend>Login</legend>
+                {{ form }}
+                {% csrf_token %}
+                <button type="submit" class="register">Login</button>
+            </fieldset>
+        </form>
+
+    </section>
+{% endblock %}
+
+

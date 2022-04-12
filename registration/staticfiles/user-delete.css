@@ -1,0 +1,40 @@
+.delete-form {
+    padding-bottom: 215px;
+    background: linear-gradient(
+            90deg, rgba(0, 0, 0, 1) 0%, rgba(3, 22, 48, 1) 36%, rgba(1, 7, 21, 1) 94%);
+}
+
+.form-delete {
+    padding-top: 30px;
+    background: linear-gradient(
+            90deg, rgba(0, 0, 0, 1) 0%, rgba(3, 22, 48, 1) 36%, rgba(1, 7, 21, 1) 94%);
+    display: flex;
+    justify-content: center;
+}
+
+.go-back {
+    background: dodgerblue;
+    color: white;
+    text-decoration: none;
+    margin-top: 26px;
+    border: none;
+    padding: 14px 12px;
+    font-size: 18px;
+    border-radius: 12px;
+    position: relative;
+    left: 250px;
+}
+
+.go-back:hover{
+    color: black;
+}
+
+.delete-vehicle {
+    position: relative;
+    left: 40px;
+}
+
+.delete-vehicle:hover {
+    color: black;
+    font-weight: 400;
+}

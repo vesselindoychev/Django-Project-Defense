@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+    {% if filtered_vehicles.qs %}
+        <h1>Results Found</h1>
+    {% else %}
+        <h1>No Results Found</h1>
+    {% endif %}
+    <br/>
+    <div class="main-div">
+        {% for vehicle in filtered_vehicles.qs %}
+            {% if vehicle.advert.car_id %}
+                <section class="adverts">
+                    <article class="car-image">
+                        <img src="{{ vehicle.advert.image.url }}" alt="">
+                    </article>
+                    <article class="advert-info">
+                        <div class="car-info">
+                            <h3>{{ vehicle.advert.car.make }} {{ vehicle.advert.car.model }} {{ vehicle.advert.car.additional_info }}</h3>
+                            <p class="price">{{ vehicle.advert.car.price|floatformat:2 }} BGN</p>
+                            <p class="distance">{{ vehicle.advert.car.mileage }} km</p>
+                            <p class="location">{{ vehicle.advert.car.location }}</p>
+                            <p class="date-time">{{ vehicle.advert.date_of_publication }}</p>
+                            <a href="{% url 'show advert details' vehicle.advert.pk %}">See Details</a>
+                        </div>
+                    </article>
+                </section>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if vehicle_page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ vehicle_page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ vehicle_page_obj.number }} of {{ vehicle_page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if vehicle_page_obj.has_next %}
+                <a href="?page={{ vehicle_page_obj.next_page_number }}">next</a>
+                <a href="?page={{ vehicle_page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+
+
+{% endblock %}

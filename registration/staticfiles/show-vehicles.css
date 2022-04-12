@@ -1,0 +1,84 @@
+.my-vehicles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(3, 22, 48, 1) 36%,
+            rgba(1, 7, 21, 1) 94%
+    );
+    margin-bottom: 20px;
+    margin-top: 50px;
+    padding-bottom: 140px;
+}
+
+.show-veh-heading {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(3, 22, 48, 1) 36%,
+            rgba(1, 7, 21, 1) 94%
+    );
+    color: white;
+}
+
+.vehicle {
+    text-align: center;
+    width: 280px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 40px;
+    border: 1px solid white;
+    padding: 0 20px 20px 20px;
+    border-radius: 12px;
+
+}
+
+.vehicle h2 {
+    color: white;
+    margin-top: 10px;
+}
+
+.vehicle p {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 8px;
+
+}
+
+#show-price {
+    margin-bottom: 20px;
+}
+
+.vehicle a {
+    margin-left: 12px;
+    padding: 8px 17px;
+    border-radius: 13px;
+    text-decoration: none;
+    font-weight: 400;
+
+}
+
+.vehicle a:hover{
+    background: white;
+    color: orangered;
+    font-weight: bold;
+}
+
+.veh-edit-btn {
+    background-color: blue;
+    color: white;
+}
+
+.veh-del-btn {
+    background-color: red;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin: 10px 0 20px 0;
+}

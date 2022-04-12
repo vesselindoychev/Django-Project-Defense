@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+    <h1>Search for</h1>
+
+    <section class="auth-form">
+        <form class="form-auth" method="get" action="{% url 'search vehicle' %}">
+            <fieldset>
+                <legend>Search</legend>
+                {{ filtered_vehicles.form.as_p }}
+
+                {% csrf_token %}
+                <button type="submit" value="search">Search</button>
+
+            </fieldset>
+        </form>
+    </section>
+
+
+
+{% endblock %}

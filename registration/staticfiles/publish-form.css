@@ -1,0 +1,11 @@
+.publish-form {
+    margin-bottom: 63px;
+    padding-bottom: 150px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(3, 22, 48, 1) 36%,
+            rgba(1, 7, 21, 1) 94%
+    );
+}

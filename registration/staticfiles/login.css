@@ -1,0 +1,17 @@
+.login-form {
+    margin-bottom: 140px;
+    padding-bottom: 20px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(3, 22, 48, 1) 36%,
+            rgba(1, 7, 21, 1) 94%
+    );
+}
+
+.form-login {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}

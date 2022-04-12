@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+    <article class="success-page">
+        <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
+        <h1>Thank you for your inquiry</h1>
+        <p>Your contact information and message have been successfully submitted.</p>
+        <a class="success-btn" href="{% url 'index' %}">Return to Home</a>
+    </article>
+    {% endblock %}

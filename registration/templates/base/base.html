@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+    <script
+            src="https://kit.fontawesome.com/69d933cef6.js"
+            crossorigin="anonymous"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CarHouse</title>
+</head>
+<body>
+<header>
+    <section class="header-section">
+        <article class="car-logo">
+            <img src="{% static 'images/Screenshot_3.jpg' %}" alt=""/>
+            <a href=""><h1>DoychevCarPark</h1></a>
+        </article>
+        <article class="first-nav-article">
+            <nav class="first-nav">
+                <ul class="first-nav-menu">
+                    {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </article>
+
+        <article class="second-nav-article">
+            {% if request.user.is_authenticated %}
+                <ul class="second-nav-menu">
+                    <li>
+                        <a href="{% url 'create vehicle' %}"><i class="fa-solid fa-plus"></i>Add Car</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'create advert' %}"><i class="fa-solid fa-plus"></i>Add Advert</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'show vehicles' request.user.id %}"><i class="fa-solid fa-car"></i>Show Vehicles</a>
+                    </li>
+
+                    {#                    # Custom#}
+                    {#                    <li>#}
+                    {#                        <form class="search-nav" method="post" action="{% url 'search vehicle' %}">#}
+                    {#                            {% csrf_token %}#}
+                    {#                            <input type="search" placeholder="Search.." name="searched">#}
+                    {#                            <button class="search-btn" type="submit">Search</button>#}
+                    {#                        </form>#}
+                    {#                    </li>#}
+                </ul>
+            {% endif %}
+        </article>
+    </section>
+    <article class="third-nav-article">
+        <ul class="third-nav-menu">
+            <li><a href="{% url 'index' %}"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="{% url 'show dashboard' %}">Dashboard</a></li>
+            <li>
+                <a href="{% url 'show search form' %}"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+            </li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'publish advert create' %}">Publish</a></li>
+
+                <li><a href="{% url 'show adverts' request.user.id %}">My Adverts</a></li>
+                <li>
+                    <a href="{% url 'user details' request.user.id %}"><i class="fa-solid fa-user"></i>Profile</a>
+                </li>
+            {% endif %}
+        </ul>
+    </article>
+</header>
+{% block content %}
+{% endblock %}
+<footer class="footer">
+    <section class="footer-section">
+        <article class="footer-nav">
+            <p>Our Company</p>
+            <ul class="footer-nav-menu">
+                <li><a href="{% url 'about us page' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li><a href="{% url 'leave feedback' %}">Feedback</a></li>
+            </ul>
+        </article>
+        <article class="footer-social-media">
+            <p>Connect with us</p>
+            <ul class="footer-social-media-nav">
+                <li>
+                    <a class="first-a" href="#"><i class="fa-brands fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a class="second-a" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a class="third-a" href="#"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+                <li>
+                    <a class="fourth-a" href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a class="fifth-a" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </li>
+            </ul>
+        </article>
+    </section>
+    <article class="footer-all-rights">
+        <p>© 2022 DoychevCarPark.com. All rights reserved.</p>
+    </article>
+</footer>
+</body>
+</html>

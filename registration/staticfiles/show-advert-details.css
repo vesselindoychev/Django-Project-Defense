@@ -1,0 +1,147 @@
+.my-advert {
+    display: flex;
+    background: white;
+}
+
+.advert-main-page {
+    background: white;
+    padding-left: 200px;
+    padding-top: 30px;
+}
+
+.heading-and-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+}
+
+.heading-and-price h2 {
+    margin-bottom: 10px;
+}
+
+.heading-and-price p {
+    color: rgb(0, 153, 255);
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.heading-and-price #one {
+    color: black;
+    margin-top: 18px;
+}
+
+.heading-and-price .price-text {
+    color: black;
+}
+
+#first-i {
+    color: green;
+    width: 20px;
+    font-weight: bold;
+}
+
+#second-i {
+    color: red;
+    font-weight: bold;
+}
+
+.image {
+    height: 300px;
+    width: 400px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.advert-main-page a {
+    color: rgb(0, 153, 255);
+    font-size: 19px;
+    text-decoration: none;
+}
+
+
+.advert-ul {
+    display: flex;
+}
+
+.advert-ul ul li {
+    list-style-type: none;
+    padding-bottom: 6px;
+    font-size: 18px;
+}
+
+.advert-info-car {
+    padding-left: 0;
+}
+
+.advert-info-car-answers li {
+    font-weight: bold;
+}
+
+.advert-car-desc {
+    width: 600px;
+}
+
+.advert-car-desc .desc {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.advert-car-desc p:nth-child(2) {
+    overflow: scroll;
+    height: 300px;
+}
+
+
+.owner-info {
+    position: absolute;
+    top: 349px;
+    left: 700px;
+    border: 1px solid black;
+    padding: 10px 28px;
+}
+
+.owner-info p:nth-child(1) {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.owner-info p:nth-child(2) {
+    font-size: 20px;
+    margin: 0;
+}
+
+.owner-info p:nth-child(3) {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+.edit-buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 391px;
+    left: 974px;
+}
+
+.edit-buttons a {
+    color: black;
+}
+
+.edit-buttons a:hover{
+    font-size: 20px;
+}
+
+.edit-buttons i {
+    margin-right: 6px;
+}

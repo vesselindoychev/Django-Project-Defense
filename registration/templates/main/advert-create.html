@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <section class="auth-form">
+        <form class="form-auth" method="post" action="{% url 'create advert' %}" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Create Advert</legend>
+                {{ form }}
+                {% csrf_token %}
+                <button type="submit">Create</button>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

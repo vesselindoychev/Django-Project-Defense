@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <h1 class="show-veh-heading">My Adverts</h1>
+    <div class="main-div">
+        {% for advert in adverts %}
+            <section class="adverts">
+                <article class="car-image">
+                    <img src="{{ advert.image.url }}" alt="">
+                </article>
+                <article class="advert-info">
+                    <div class="car-info">
+                        <h3>{{ advert.car.make }} {{ advert.car.model }}
+                            {% if advert.car.additional_info %}
+                                {{ advert.car.additional_info }}
+                            {% endif %}
+                        </h3>
+                        <p class="price">{{ advert.car.price|floatformat:2 }} BGN</p>
+                        <p class="distance">{{ advert.car.mileage }} km</p>
+                        <p class="location">{{ advert.car.location }}</p>
+                        <p class="date-time">{{ advert.date_of_publication }}</p>
+                        <a href="{% url 'show advert details' advert.pk %}">See Details</a>
+                    </div>
+                </article>
+            </section>
+        {% endfor %}
+    </div>
+{% endblock %}

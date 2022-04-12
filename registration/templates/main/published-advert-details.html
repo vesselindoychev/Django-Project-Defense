@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="my-advert">
+        <section class="advert-main-page">
+            <article class="heading-and-price">
+                <h2>{{ object.advert.car.make }} {{ object.advert.car.model }} {{ object.advert.car.additional_info }}</h2>
+                <p>{{ object.advert.car.price|floatformat:2 }} BGN</p>
+            </article>
+
+            <a href="{{ object.advert.car.technical_characteristic }}">/Technical characteristics and
+                fuel consumption</a>
+
+            <article class="image">
+                <img src="{{ object.advert.image.url }}" alt="">
+            </article>
+
+            <article class="heading-and-price">
+                <h2>{{ object.advert.car.make }} {{ object.advert.car.model }} {{ object.advert.car.additional_info }}</h2>
+                <p class="price-text">Price [<i id="first-i" class="fa-solid fa-arrow-up"></i><i id="second-i"
+                                                                                                 class="fa-solid fa-arrow-down"></i>]
+                </p>
+                <p>{{ object.advert.car.price|floatformat:2 }} BGN</p>
+            </article>
+
+            <article class="advert-ul">
+                <ul class="advert-info-car">
+                    <li>Manufacture Date</li>
+                    <li>Engine</li>
+                    <li>Power</li>
+                    <li>Eurostandard</li>
+                    <li>Gearbox</li>
+                    <li>Category</li>
+                    <li>Mileage</li>
+                    <li>Color</li>
+                    <li>Condition</li>
+                    <li>Location</li>
+                </ul>
+                <ul class="advert-info-car-answers">
+                    <li>{{ object.advert.car.manufacture_date }} year</li>
+                    <li>{{ object.advert.car.engine }}</li>
+                    <li>{{ object.advert.car.power }} hp</li>
+                    <li>{{ object.advert.car.euro_standard }}</li>
+                    <li>{{ object.advert.car.gearbox }}</li>
+                    <li>{{ object.advert.car.type }}</li>
+                    <li>{{ object.advert.car.mileage }} km</li>
+                    <li>{{ object.advert.car.color }}</li>
+                    <li>{{ object.advert.car.condition }}</li>
+                    <li>{{ object.advert.car.location }}</li>
+                </ul>
+            </article>
+            <article class="advert-car-desc">
+                <p class="desc">Description:</p>
+                <p>{{ object.advert.description }}</p>
+            </article>
+            <article class="owner-info">
+                <p>Private person</p>
+                <p>{{ object.advert.car.location }}</p>
+                <p><i class="fa-solid fa-phone"></i> 08773434911</p>
+            </article>
+        </section>
+
+
+    </div>
+{% endblock %}
+

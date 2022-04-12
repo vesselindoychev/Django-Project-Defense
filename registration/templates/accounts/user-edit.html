@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <section class="auth-form">
+        <form class="form-auth" method="post" action="{% url 'user edit' request.user.id %}" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Edit Profile</legend>
+                {{ form }}
+                {% csrf_token %}
+                <button type="submit" class="register">Edit</button>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

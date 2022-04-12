@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="main-profile-page-div">
+        <section class="profile-page">
+            <article class="name-and-image">
+                <p class="user-image">
+                    {% if object.picture %}
+                        <img src="{{ object.picture.url }}" alt="">
+                    {% else %}
+                        <img src="{% static 'images/24-248253_user-profile-default-image-png-clipart-png-download.png' %}"
+                             alt="">
+                    {% endif %}
+                </p>
+                <div>
+                    <p class="user-name">{{ object.first_name }} {{ object.last_name }}</p>
+                    <p class="user-adverts">Total Adverts: {{ total_adverts_count }}</p>
+                </div>
+
+            </article>
+            <article class="user-info">
+                <ul class="user-info-ul-left-side">
+                    <li>Full name:</li>
+                    <li>Date of birth:</li>
+                    <li>Gender:</li>
+                    <li>Email:</li>
+                    <li>Description:</li>
+                </ul>
+
+                <ul class="user-info-ul-right-side">
+                    <li>{{ object.first_name }} {{ object.last_name }}</li>
+                    <li>{{ object.date_of_birth }}</li>
+                    <li>{{ object.gender }}</li>
+                    <li>{{ request.user.email }}</li>
+                    <li id="user-desc">{{ object.description }}</li>
+                </ul>
+            </article>
+            {% if is_owner %}
+                <article class="user-settings-btns">
+                    <a href="{% url 'user edit' request.user.id %}" class="edit-profile-btn">Edit</a>
+                    <a href="{% url 'user delete' request.user.id %}" class="delete-profile-btn">Delete</a>
+                    <a href="{% url 'edit password' %}" class="edit-pass-btn">Change password</a>
+                </article>
+            {% endif %}
+        </section>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <section class="auth-form">
+        <form class="form-auth" method="post" action="{% url 'register' %}">
+            <fieldset>
+                <legend>Registration</legend>
+                {{ form }}
+                {% csrf_token %}
+                <button type="submit" class="register">Sign up</button>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}
+
+

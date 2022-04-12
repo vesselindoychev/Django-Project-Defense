@@ -1,0 +1,45 @@
+{#{% extends 'base/base.html' %}#}
+{#{% block content %}#}
+{#    <section class="auth-form">#}
+{#        <form class="form-auth" method="post" action="{% url 'edit vehicle' vehicle.pk %}">#}
+{#            <fieldset>#}
+{#                <legend>Edit Vehicle</legend>#}
+{#                {{ form }}#}
+{#                {% csrf_token %}#}
+{#                <button type="submit">Edit</button>#}
+{#            </fieldset>#}
+{#        </form>#}
+{#    </section>#}
+{#{% endblock %}#}
+
+{% extends 'base/base.html' %}
+{% block content %}
+    <section class="auth-form">
+        <form class="form-auth" id="vehicleForm" method="post" data-car-models-url="{% url 'ajax load car models' %}">
+            <fieldset>
+                <legend>Add Vehicle</legend>
+
+                {{ form }}
+                {% csrf_token %}
+                <button type="submit">Edit</button>
+            </fieldset>
+        </form>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $("#id_make").change(function () {
+            var url = $("#vehicleForm").attr("data-car-models-url");
+            var makeId = $(this).val();
+            $.ajax({
+                url: url,
+                data: {
+                    'make': makeId
+                },
+                success: function (data) {
+                    $("#id_model").html(data);
+                }
+            });
+
+        });
+    </script>
+{% endblock %}

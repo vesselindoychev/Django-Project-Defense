@@ -1,0 +1,43 @@
+.success-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    background: white;
+    padding-bottom: 160px;
+}
+
+.success-page h1 {
+    color: black;
+}
+
+.success-page p {
+    color: black;
+    text-align: center;
+    font-size: 26px;
+}
+
+.success-icon {
+    margin-top: 30px;
+    margin-bottom: 24px;
+}
+
+.success-icon i {
+    color: rgb(63, 220, 153);
+    font-size: 100px;
+}
+
+.success-btn {
+    background: rgb(96, 190, 113);
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 35px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 2px solid gray;
+}
+
+.success-btn:hover {
+    color: black;
+}
