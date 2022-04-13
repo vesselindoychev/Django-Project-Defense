@@ -57,6 +57,12 @@
                 <p>{{ object.advert.car.location }}</p>
                 <p><i class="fa-solid fa-phone"></i> 08773434911</p>
             </article>
+            <article class="advert-likes">
+                {% if not is_owner %}
+                    <a href="{% url 'like advert' object.pk %}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                {% endif %}
+                <p>Likes: {{ object.likes }}</p>
+            </article>
         </section>
 
 

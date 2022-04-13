@@ -57,13 +57,41 @@ class VehicleEditViewTest(TestCase):
         self.assertTemplateUsed(response, 'main/vehicle-edit.html')
 
     def test_update_vehicle__when_all_is_valid__expect_to_return_updated_vehicle(self):
+        # user, profile = self.__create_valid_profile_and_user()
+        # make, model = self.__create_make_and_model()
+        # vehicle = Vehicle.objects.create(**self.VALID_VEHICLE_DATA, make=make, model=model, user=user, )
+        #
+        # response = self.client.post(reverse('edit vehicle', kwargs={'pk': profile.pk}),
+        #                             {self.VALID_VEHICLE_DATA['price']: 12, self.VALID_VEHICLE_DATA['engine']: 'Gas'})
+        #
+        # self.assertEqual(response.status_code, 302)
+        # vehicle.refresh_from_db()
+        # self.assertEqual(vehicle.price, 12)
+
         user, profile = self.__create_valid_profile_and_user()
         make, model = self.__create_make_and_model()
         vehicle = Vehicle.objects.create(**self.VALID_VEHICLE_DATA, make=make, model=model, user=user, )
 
-        response = self.client.post(reverse('edit vehicle', kwargs={'pk': profile.pk}),
-                                    {self.VALID_VEHICLE_DATA['price']: 12, self.VALID_VEHICLE_DATA['engine']: 'Gas'})
+        response = self.client.post(
+            reverse('edit vehicle', kwargs={
+                'pk': vehicle.pk
+            }),
+            data={
+                'price': 2000,
+                'engine': Vehicle.DIESEL,
+                'gearbox': Vehicle.MANUAL_TRANSMISSION,
+                'manufacture_date': 2004,
+                'euro_standard': Vehicle.EURO3,
+                'power': 190,
+                'type': Vehicle.SEDAN,
+                'mileage': 130123,
+                'condition': Vehicle.USED,
+                'location': Vehicle.PLOVDIV,
+                'color': 'Blue',
+                'make': Vehicle.make,
+                'model': Vehicle.model,
+            }
+        )
 
-        self.assertEqual(response.status_code, 302)
-        vehicle.refresh_from_db()
-        self.assertEqual(vehicle.price, 12)
+        updated_vehicle = Vehicle.objects.get(pk=vehicle.pk)
+        self.assertEqual('Blue', updated_vehicle.color)

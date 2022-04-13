@@ -145,3 +145,9 @@
 .edit-buttons i {
     margin-right: 6px;
 }
+
+.advert-likes {
+    position: absolute;
+    top: 513px;
+    left: 710px;
+}

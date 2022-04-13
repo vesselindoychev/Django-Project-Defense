@@ -69,10 +69,12 @@ class UserDetailsView(views.DetailView):
         cars = Vehicle.objects.filter(user_id=self.object.user_id)
         adverts = PublishedAdvert.objects.filter(advert__car__in=cars).distinct()
         total_adverts_count = len(adverts)
+        total_likes = sum(pa.likes for pa in adverts)
 
         context.update({
             'total_adverts_count': total_adverts_count,
             'is_owner': self.object.user_id == self.request.user.id,
+            'total_likes': total_likes,
         })
 
         return context

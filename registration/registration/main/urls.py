@@ -4,7 +4,7 @@ from registration.main.views.adverts import CreateAdvertView, EditAdvertView, De
     ShowDetailsAdvertDetailView
 from registration.main.views.contact_and_feedbacks import contact_view, leave_feedback
 from registration.main.views.generic import HomeTemplateView, ShowDashboardListView, AboutPageTemplateView
-from registration.main.views.published_adverts import PublishAdvertCreateView, PublishedAdvertDetailsView
+from registration.main.views.published_adverts import PublishAdvertCreateView, PublishedAdvertDetailsView, like_advert
 from registration.main.views.search_by_vehicle import load_car_models, search_vehicles, search_by_vehicle_props
 from registration.main.views.vehicles import CreateVehicleView, ShowVehicleDetailView, EditVehicleView, \
     DeleteVehicleView
@@ -31,6 +31,7 @@ urlpatterns = (
     # Publish Advert
     path('publish-advert/create/', PublishAdvertCreateView.as_view(), name='publish advert create'),
     path('published-advert/details/<int:pk>/', PublishedAdvertDetailsView.as_view(), name='published advert details'),
+    path('like-advert/<int:pk>/', like_advert, name='like advert'),
 
     # Dashboard
     path('show-dashboard/', ShowDashboardListView.as_view(), name='show dashboard'),

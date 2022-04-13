@@ -112,3 +112,16 @@ hr {
 .contact-form-fieldset ul li {
     list-style: none;
 }
+
+
+@media all and (max-width: 1770px) {
+    hr {
+        width: 0;
+    }
+
+    .contact-btn {
+        font-size: 14px;
+        width: 158px;
+
+    }
+}

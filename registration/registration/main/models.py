@@ -289,6 +289,12 @@ class Advert(models.Model):
 
 
 class PublishedAdvert(models.Model):
+    likes = models.IntegerField(
+        default=0,
+        null=True,
+        blank=True,
+    )
+
     advert = models.OneToOneField(
         Advert,
         on_delete=models.CASCADE,

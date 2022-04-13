@@ -48,9 +48,14 @@
     font-size: 31px;
     color: #4f4f4f;
     margin-left: 105px;
-    margin-bottom: 100px;
 }
 
+.user-adverts-likes {
+    font-size: 25px;
+    color: #4f4f4f;
+    margin-left: 105px;
+    margin-bottom: 100px;
+}
 
 .user-info {
     display: flex;
