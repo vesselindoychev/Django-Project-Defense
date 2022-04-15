@@ -110,3 +110,27 @@ class UserDetailsViewTest(TestCase):
         response = self.client.get(reverse('user details', kwargs={'pk': profile.pk}))
 
         self.assertEqual(1, response.context['total_adverts_count'])
+
+    def test_when_advert_likes__expect_total_likes_count_to_be_correct(self):
+        likes = 3
+        user, profile = self.__create_valid_user_and_profile()
+        make, model = self.__create_make_and_model()
+        car = Vehicle.objects.create(**self.VALID_VEHICLE_DATA, make=make, model=model, user=user, )
+        advert = Advert.objects.create(**self.VALID_ADVERT_DATA, car=car, user=user, )
+        published_advert = PublishedAdvert.objects.create(advert=advert, user=user)
+        published_advert.likes = 3
+        published_advert.save()
+        response = self.client.get(reverse('user details', kwargs={'pk': profile.pk}))
+
+        self.assertEqual(likes, response.context['total_likes'])
+
+    def test_when_no_advert_likes__expect_total_likes_count_to_be_zero(self):
+        user, profile = self.__create_valid_user_and_profile()
+        make, model = self.__create_make_and_model()
+        car = Vehicle.objects.create(**self.VALID_VEHICLE_DATA, make=make, model=model, user=user, )
+        advert = Advert.objects.create(**self.VALID_ADVERT_DATA, car=car, user=user, )
+        published_advert = PublishedAdvert.objects.create(advert=advert, user=user)
+        published_advert.save()
+        response = self.client.get(reverse('user details', kwargs={'pk': profile.pk}))
+
+        self.assertEqual(0, response.context['total_likes'])
